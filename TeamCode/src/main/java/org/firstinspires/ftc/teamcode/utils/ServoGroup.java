@@ -7,6 +7,7 @@ public class ServoGroup {
 
     public ServoGroup(Servo master, Servo slave) {
         this.master = master;
+        master.setDirection(Servo.Direction.REVERSE);
         this.slave = slave;
 
     }
@@ -16,8 +17,8 @@ public class ServoGroup {
         slave.setPosition(master.getPosition());
     }
 
-    public double[] getCurrentPositions() {
-        return new double[]{master.getPosition(), slave.getPosition()};
+    public double getCurrentPosition() {
+        return master.getPosition();
     }
 
 }

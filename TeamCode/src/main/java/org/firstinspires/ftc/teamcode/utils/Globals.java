@@ -15,5 +15,8 @@ public class Globals {
     public static double kMaxLength = 0.7;
     public static double kMinLength = 1.5;
 
+    public static double kclawClosed = 0.85;
+    public static double kclawOpen = 0.6;
+
 
 }

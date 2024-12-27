@@ -20,6 +20,8 @@ public class Intake extends SubsystemBase {
     public Servo clawGrip;
     HardwareMap hardwareMap;
 
+    public State currentState = State.PASSIVE;
+
 
     // TODO: Figure out these values
     public enum State {
@@ -57,5 +59,7 @@ public class Intake extends SubsystemBase {
         linkageServos.setPosition(state.linkagePosition);
         clawServos.setPosition(state.clawPosition);
         clawGrip.setPosition(state.clawGrip);
+
+        this.currentState = state;
     }
 }

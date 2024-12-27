@@ -26,17 +26,19 @@ public class Outtake extends SubsystemBase {
     public enum State {
         HIGH(0, 0, 0),
         MID(0, 0, 0),
+        SPECIMEN(0, 0, 0),
+        PASSIVE(0, 0, 0),
         TRANSFER(0, 0, 0),
         HANG(0, 0, 0);
 
 
         private int slidePosition;
-        private double clawPosition;
+        private double armPosition;
         private double clawGrip;
 
-        State(int slidePosition, double clawPosition, double clawGrip) {
+        State(int slidePosition, double armPosition, double clawGrip) {
             this.slidePosition = slidePosition;
-            this.clawPosition = clawPosition;
+            this.armPosition = armPosition;
             this.clawGrip = clawGrip;
         }
     }
@@ -57,8 +59,8 @@ public class Outtake extends SubsystemBase {
 
 
     public void setState(State state) {
-        slideMotors.setPosition(state.slidePosition);
-        armServos.setPosition(state.clawPosition);
         clawGrip.setPosition(state.clawGrip);
+        slideMotors.setPosition(state.slidePosition);
+        armServos.setPosition(state.armPosition);
     }
 }

@@ -10,11 +10,13 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.utils.Globals;
 
 
-@TeleOp(name = "Working Teleop")
+@TeleOp(name = "HI!!!!!!!!!!!!!!!!!!!! i am a teleoperated")
 public class TestOpMode extends LinearOpMode {
 
 //    public Servo leftLinkageServo;
     public Servo rightLinkageServo;
+
+    public Servo testServo;
 
 
     public DcMotor leftVerticalMotor;
@@ -26,6 +28,8 @@ public class TestOpMode extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
 
         while(opModeInInit()) {
+
+            testServo = hardwareMap.get(Servo.class, "testservo");
 //            leftLinkageServo = hardwareMap.servo.get("leftLinkageServo");
 //            rightLinkageServo = hardwareMap.servo.get("rightLinkageServo");
 
@@ -85,6 +89,12 @@ public class TestOpMode extends LinearOpMode {
 
 
 
+            if(gamepad1.a) {
+                testServo.setPosition(0);
+            } else {
+                testServo.setPosition(1);
+
+            }
 //
             if(gamepad1.dpad_up) {
                 leftVerticalMotor.setTargetPosition(Globals.kMaxHeight);

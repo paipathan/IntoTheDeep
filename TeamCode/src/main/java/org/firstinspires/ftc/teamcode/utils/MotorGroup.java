@@ -31,8 +31,8 @@ public class MotorGroup {
         slave.setTargetPosition(master.getCurrentPosition());
     }
 
-    public int[] getCurrentPositions() {
-        return new int[]{master.getCurrentPosition(), slave.getCurrentPosition()};
+    public int getCurrentPosition() {
+        return master.getCurrentPosition();
     }
 
 }
