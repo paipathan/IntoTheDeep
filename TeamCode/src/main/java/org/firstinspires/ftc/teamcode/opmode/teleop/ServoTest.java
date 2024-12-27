@@ -20,13 +20,7 @@ public class ServoTest extends LinearOpMode {
     public Servo testServo;
     public Servo testServo2;
     public ServoGroup servoGroup;
-    boolean prevB = false;
-
-
-    public Controller controller;
-
     public GamepadEx gamepadex;
-    public ButtonReader reader;
 
 
 
@@ -38,11 +32,7 @@ public class ServoTest extends LinearOpMode {
             testServo2 = hardwareMap.get(Servo.class, "testServo2");
             servoGroup = new ServoGroup(testServo, testServo2);
 
-            controller = new Controller(gamepad1);
-
             gamepadex = new GamepadEx(gamepad1);
-
-
 
         }
 
@@ -52,28 +42,15 @@ public class ServoTest extends LinearOpMode {
 
         while(opModeIsActive()) {
 
-            telemetry.addData("status", " ");
-
-            telemetry.addData("servo pos", testServo2.getPosition());
-
-
         if(gamepadex.wasJustPressed(GamepadKeys.Button.B)) {
             testServo2.setPosition(Globals.kclawClosed);
-
         }
 
         if(gamepadex.wasJustReleased(GamepadKeys.Button.B)) {
             testServo2.setPosition(Globals.kclawOpen);
-
         }
 
         gamepadex.readButtons();
-
-
-
-
-
-        controller.update();
 
         telemetry.update();
 
